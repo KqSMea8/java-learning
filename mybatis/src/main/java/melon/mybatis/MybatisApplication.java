@@ -9,7 +9,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 public class MybatisApplication {
 
     public static void main(String[] args) {
-        System.out.println("hello world~");
+        System.out.println("hello world~ classpath:"+MybatisApplication.class.getResource("/").toString());
         SpringApplication.run(MybatisApplication.class, args);
     }
 }

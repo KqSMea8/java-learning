@@ -9,7 +9,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import tk.mybatis.spring.annotation.MapperScan;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,5 +35,32 @@ public class MybatisApplicationTests {
         customer = mapper.selectOne(customer);
         System.out.println(JSON.toJSONString(customer));
     }
+
+    @Test
+    public void testNullException(){
+        List list = new ArrayList();
+        list.forEach((item)->{
+            System.out.println(item);
+        });
+    }
+
+    @Test
+    public void testTime(){
+        System.out.println(new Date().getTime());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DATE,-1);
+        System.out.println(calendar.getTimeInMillis());
+        Calendar start = Calendar.getInstance();
+        start.setTime(calendar.getTime());
+        start.set(Calendar.HOUR_OF_DAY,0);
+        start.set(Calendar.MINUTE, 0);
+        start.set(Calendar.SECOND, 0);
+        start.set(Calendar.MILLISECOND, 0);
+        System.out.println(start.getTimeInMillis());
+        System.out.println(calendar.getTimeInMillis()-start.getTimeInMillis());
+    }
+
+
 
 }
