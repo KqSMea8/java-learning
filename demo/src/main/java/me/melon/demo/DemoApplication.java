@@ -1,11 +1,12 @@
-package melon.common;
+package me.melon.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CommonApplication {
+public class DemoApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(CommonApplication.class);
+        SpringApplication.run(DemoApplication.class, args);
     }
 }
